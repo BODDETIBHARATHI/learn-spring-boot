@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+  xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="0501202301" author="bharathi.boddeti@cdk.com">
+    <createTable tableName="tbl_course">
+      <column autoIncrement="true" name="id" type="BIGSERIAL">
+        <constraints nullable="false"/>
+      </column>
+      <column name="course_id" type="UUID">
+        <constraints nullable="false"/>
+      </column>
+      <column name="course_name" type="TEXT">
+        <constraints nullable="false"/>
+      </column>
+      <column name="number" type="bigint">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+  </changeSet>
+
+  <changeSet id="0501202302" author="bharathi.boddeti@cdk.com">
+    <createView viewName="vw_course">
+      SELECT tbl_course.course_id,
+      tbl_course.course_name,
+      tbl_course.number
+      FROM tbl_course;
+    </createView>
+  </changeSet>
+
+</databaseChangeLog>
