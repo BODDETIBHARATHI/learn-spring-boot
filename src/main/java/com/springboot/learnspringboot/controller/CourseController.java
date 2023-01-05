@@ -18,6 +18,11 @@ public class CourseController {
   @GetMapping("/course")
   public CourseEntity getCourse(){
     return courseRepository.findByCourseName("java");
-//    return Arrays.asList(new Course(1, "Learn Microservices", "in28Minutes"));
+  }
+
+
+  @GetMapping("/courses")
+  public List<Course> getCoursesStatic(){
+    return Arrays.asList(new Course(1, "Learn Microservices", "in28Minutes"));
   }
 }
